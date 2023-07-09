@@ -59,7 +59,7 @@
     </style>
     <style>
         .hide {
-            display: none;
+            display: none!important;
         }
     </style>
 
@@ -76,6 +76,7 @@
             </div>
         </header>
         <div id="camera-view"></div>
+        <image id="captured-image" src="" style="width: 340px; height: 536px;" class="hide"></image>
         <div class="tabs">
             <input id="chats" type="radio" name="group" checked>
             <input id="status" type="radio" name="group">
@@ -87,7 +88,7 @@
                 <label for="calls">Calls</label>
                 <div class="underline"></div>
             </div>
-
+            
             <div id="picture-close-btn" onclick="closePicture()" class="quickBtn hide" style="top: 13%;left: 5%;position: absolute;color: white;font-size: larger;width: fit-content;height: fit-content;">
                 X
             </div>
@@ -104,8 +105,7 @@
             </div>
 
             <div class="quickBtn">
-                
-                <div id="camera-btn" class="btn camers"> 
+                <div id="camera-btn" class="btn"> 
                     <ion-icon name="camera"></ion-icon>
                 </div>
                 <div class="btn call"><ion-icon name="call"></ion-icon>
@@ -452,7 +452,15 @@
     
     <script>
         videoOn = false;
-        document.getElementById('camera-btn').addEventListener('click', function() {
+
+        cameraBtn = document.getElementById('camera-btn')
+        cameraView = document.getElementById('camera-view')
+        captureBtn = document.getElementById('capture-btn')
+        capturedImage = document.getElementById('captured-image')
+        downloadBtn = document.getElementById('download-btn')
+        picCloseBtn = document.getElementById('picture-close-btn')
+
+        cameraBtn.addEventListener('click', function() {
             videoOn = !videoOn;
             Webcam.set({
                 width: 340,
@@ -465,14 +473,66 @@
 
             Webcam.attach('#camera-view');
             if(videoOn){
-                document.getElementById('camera-view').classList.remove('hide')
+                cameraView.classList.remove('hide')
                 document.getElementsByTagName('video')[0].style.transform = 'scaleY(2.8)';
+                captureBtn.classList.remove('hide')
             } else {
-                document.getElementById('camera-view').classList.add('hide')
+                cameraView.classList.add('hide')
                 document.getElementsByClassName('tabs')[0].classList.remove('hide')
+                capturedImage.classList.add('hide')
+                downloadBtn.classList.add('hide')
+                picCloseBtn.classList.add('hide')
             }
         });
 
+        function captureImage() {
+            Webcam.snap(
+                function(data_uri) {
+                    // Create an offscreen canvas
+                    var canvas = document.createElement('canvas');
+                    canvas.width = 340;
+                    canvas.height = 536;
+
+                    // Draw the captured image on the canvas, centering it
+                    var context = canvas.getContext('2d');
+                    var image = new Image();
+                    image.onload = function() {
+                    var x = (image.width - 340) / 2;
+                    var y = (image.height - 536) / 2;
+                    context.drawImage(image, x, y, 340, 536, 0, 0, 340, 536);
+
+                    // Convert the canvas content to a data URI
+                    var croppedDataUri = canvas.toDataURL('image/jpeg', 0.9);
+
+                    // Do something with the cropped image data URI
+                    capturedImage.src = croppedDataUri;
+
+                    capturedImage.classList.remove('hide')
+
+                    cameraView.classList.add('hide')
+                    document.getElementById('picture-close-btn').classList.remove('hide')
+                    document.getElementById('download-btn').classList.remove('hide')
+                };
+                image.src = data_uri;
+            });
+        }
+
+        function downloadImage() {
+            var link = document.createElement('a');
+            link.href = capturedImage.src;
+            link.download = 'downloaded_image.jpg'; // Set the desired filename
+            link.style.display = 'none'; // Hide the link element
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function closePicture(){
+            capturedImage.classList.add('hide')
+            cameraView.classList.remove('hide')
+            document.getElementById('picture-close-btn').classList.add('hide')
+            document.getElementById('download-btn').classList.add('hide')
+        }
     </script>
 </body>
 </html>
