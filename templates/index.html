@@ -510,8 +510,8 @@
                     capturedImage.classList.remove('hide')
 
                     cameraView.classList.add('hide')
-                    document.getElementById('picture-close-btn').classList.remove('hide')
-                    document.getElementById('download-btn').classList.remove('hide')
+                    picCloseBtn.classList.remove('hide')
+                    downloadBtn.classList.remove('hide')
                 };
                 image.src = data_uri;
             });
@@ -530,8 +530,8 @@
         function closePicture(){
             capturedImage.classList.add('hide')
             cameraView.classList.remove('hide')
-            document.getElementById('picture-close-btn').classList.add('hide')
-            document.getElementById('download-btn').classList.add('hide')
+            picCloseBtn.classList.add('hide')
+            downloadBtn.classList.add('hide')
         }
     </script>
 </body>
