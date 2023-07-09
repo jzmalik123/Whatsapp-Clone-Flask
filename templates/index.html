@@ -102,7 +102,7 @@
                         <div class="chatlist">
                             <div class="block unread open">
                                 <div class="imgbx">
-                                    <img src="img1.jpg">
+                                    <img src="/static/img1.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -117,7 +117,7 @@
                             </div>
                             <div class="block">
                                 <div class="imgbx">
-                                    <img src="img2.jpg">
+                                    <img src="/static/img2.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -132,7 +132,7 @@
                             </div>
                             <div class="block unread">
                                 <div class="imgbx">
-                                    <img src="img3.jpg">
+                                    <img src="/static/img3.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -147,7 +147,7 @@
                             </div>
                             <div class="block">
                                 <div class="imgbx">
-                                    <img src="img4.jpg">
+                                    <img src="/static/img4.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -161,7 +161,7 @@
                             </div>
                             <div class="block">
                                 <div class="imgbx">
-                                    <img src="img5.jpg">
+                                    <img src="/static/img5.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -175,7 +175,7 @@
                             </div>
                             <div class="block">
                                 <div class="imgbx">
-                                    <img src="img6.jpg">
+                                    <img src="/static/img6.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -189,7 +189,7 @@
                             </div>
                             <div class="block">
                                 <div class="imgbx">
-                                    <img src="img7.jpg">
+                                    <img src="/static/img7.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -203,7 +203,7 @@
                             </div>
                             <div class="block">
                                 <div class="imgbx">
-                                    <img src="img8.jpg">
+                                    <img src="/static/img8.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -217,7 +217,7 @@
                             </div>
                             <div class="block">
                                 <div class="imgbx">
-                                    <img src="img9.jpg">
+                                    <img src="/static/img9.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -237,7 +237,7 @@
                         <div class="chatlist">
                             <div class="block">
                                 <div class="imgbx">
-                                    <img src="user.jpg">
+                                    <img src="/static/user.jpg">
                                 </div>
                                 <div class="plus">+</div>
                                 <div class="details">
@@ -252,7 +252,7 @@
                             <label>Recent Updates</label>
                             <div class="block unseen">
                                 <div class="imgbx">
-                                    <img src="img4.jpg">
+                                    <img src="/static/img4.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -265,7 +265,7 @@
                             </div>
                             <div class="block unseen">
                                 <div class="imgbx">
-                                    <img src="img5.jpg">
+                                    <img src="/static/img5.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -279,7 +279,7 @@
                             <label>Viewed Updates</label>
                             <div class="block seen">
                                 <div class="imgbx">
-                                    <img src="img6.jpg">
+                                    <img src="/static/img6.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -292,7 +292,7 @@
                             </div>
                             <div class="block seen">
                                 <div class="imgbx">
-                                    <img src="img7.jpg">
+                                    <img src="/static/img7.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -326,7 +326,7 @@
                             <label>Recent</label>
                             <div class="block">
                                 <div class="imgbx">
-                                    <img src="img7.jpg">
+                                    <img src="/static/img7.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -341,7 +341,7 @@
                             </div>
                             <div class="block">
                                 <div class="imgbx">
-                                    <img src="img6.jpg">
+                                    <img src="/static/img6.jpg">
                                 </div>
                                 <div class="details">
                                     <div class="listHead">
@@ -360,14 +360,14 @@
             </div>
         </div>
 
-        <div class="chatBox">
+        <div class="chatBox hide">
             <div class="chat_header">
                 <div class="imgcontent">
                     <ion-icon name="arrow-back-sharp" class="back"></ion-icon>
                     <div class="imgBx">
-                        <img src="img1.jpg">
+                        <img id="chatImage" src="/static/img1.jpg">
                     </div>
-                    <h3>Kalid Ahmed<br><span>Online</span></h3>
+                    <h3 id="chatName">Kalid Ahmed<br><span>Online</span></h3>
                 </div>
                 <div class="actionBtns">
                     <ion-icon name="videocam"></ion-icon>
@@ -376,7 +376,7 @@
                 </div>
             </div>
             <div class="messageBox">
-                <div class="message">This is my first full stack projects. Hope you enjoy it :)<br><span class="time">10:56</span>
+                <div class="message" id="chatMessage">This is my first full stack projects. Hope you enjoy it :)<br><span class="time" id="chatTime">10:56</span>
                 </div>
                 
                 <form action="/submit" method="POST" enctype="multipart/form-data">
@@ -391,8 +391,6 @@
                         </div>
                     </div>
                 </form>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.6.3/ionicons.min.js"></script>
                     </div>                   
                     </div>
                 </div>
@@ -400,6 +398,9 @@
         </div>
         
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.6.3/ionicons.min.js"></script>
     
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -407,30 +408,29 @@
     <script src="/script.js"></script>
     <script>
         // Get all the chat boxes on the page
-        const chatBoxes = document.querySelectorAll('.chatBox');
-      
-        // Loop through each chat box
-        chatBoxes.forEach(function (chatBox) {
-          const openButton = chatBox.previousElementSibling;
-          const closeButton = chatBox.querySelector('.back');
-          const chatContent = chatBox.querySelector('.chatContent');
-          const chatName = chatBox.querySelector('.chatName');
-      
-          openButton.onclick = function () {
-            // Hide all other open chat boxes
-            chatBoxes.forEach(function (box) {
-              if (box !== chatBox) {
-                box.classList.add('hide');
-              }
-            });
-      
-            chatBox.classList.remove('hide');
-          };
-      
-          closeButton.onclick = function () {
-            chatBox.classList.add('hide');
-          };
+        const chatBox = document.querySelector('.chatBox');
+        const chats = document.querySelectorAll('.chats .block')
+        const closeButton = chatBox.querySelector('.back');
+
+        chats.forEach(function (chat) {
+            chat.onclick = function () {
+                chatImage = chat.querySelector('img').src
+                chatName = chat.querySelector('h4').textContent
+                chatTime = chat.querySelector('p.time').textContent
+                chatMessage = chat.querySelector('.message_p p').textContent
+
+                document.getElementById('chatImage').src = chatImage
+                document.getElementById('chatName').innerHTML = chatName + '<br><span>Online</span>'
+                document.getElementById('chatTime').innerHTML = chatTime
+                document.getElementById('chatMessage').innerHTML = chatMessage + document.getElementById('chatTime').outerHTML
+
+                chatBox.classList.remove('hide');
+            }
         });
+
+        closeButton.onclick = function () {
+            chatBox.classList.add('hide');
+        };
     </script>
     
 </body>
