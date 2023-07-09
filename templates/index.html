@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>WhatsApp API clone</title>
+    
+    <!-- the code below is for the text box and send and add
+    file button until code line 43.-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.6.3/ionicons.min.css">
+    <style>
+        .file-icon,
+        .send-button {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background: #008069;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1.2em;
+            border-radius: 60%;
+            cursor: pointer;
+            margin-left: 7px;
+        }
+        .file-input {
+            justify-content: space-between;
+            display: none;
+        }
+        #text-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #text-container textarea {
+            position: relative;
+            background: #fff;
+            padding: 5px 10px;
+            width: 270px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 40px;
+        }
+        #text-container .feature-icons {
+            display: flex;
+        }
+        #text-container .feature-icons label {
+            margin-left: 10px;
+        }
+    </style>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="#" class="logo"> Starlink AIT-WhatsApp</a>
+            <div class = "action">
+                <a href="#"><ion-icon name="search-outline"></ion-icon></a>
+                <a href="#"><ion-icon name="ellipsis-vertical"></ion-icon>
+                </a>
+            </div>
+        </header>
+        <div class="tabs">
+            <input id="chats" type="radio" name="group" checked>
+            <input id="status" type="radio" name="group">
+            <input id="calls" type="radio" name="group">
+
+            <div class="buttons">
+                <label for="chats">Chats</label>
+                <label for="status">Status</label>
+                <label for="calls">Calls</label>
+                <div class="underline"></div>
+            </div>
+
+            <div class="quickBtn">
+                
+                <div class="btn camers"> 
+                    <ion-icon name="camera"></ion-icon>
+                </div>
+                <div class="btn call"><ion-icon name="call"></ion-icon>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="box chats">
+                    <div class="data">
+                        <div class="chatlist">
+                            <div class="block unread open">
+                                <div class="imgbx">
+                                    <img src="img1.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>Kalid Ahmed</h4>
+                                        <p class="time">10:56</p>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>This is my first full stack projects. Hope you enjoy it :)</p>
+                                        <b>1</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block">
+                                <div class="imgbx">
+                                    <img src="img2.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4> Coach Jamal</h4>
+                                        <p class="time">05:26</p>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>Do we have MMA class today's?</p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block unread">
+                                <div class="imgbx">
+                                    <img src="img3.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>Zaid</h4>
+                                        <p class="time"> Yesterday</p>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>Send for processing</p>
+                                        <b>5</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block">
+                                <div class="imgbx">
+                                    <img src="img4.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>Ali</h4>
+                                        <p class="time">Yesterday</p>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>Okay, I'll see you tommorrow</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block">
+                                <div class="imgbx">
+                                    <img src="img5.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>Joseph</h4>
+                                        <p class="time">05/11/2023</p>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>please wait...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block">
+                                <div class="imgbx">
+                                    <img src="img6.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>Ana</h4>
+                                        <p class="time">04/18/2023</p>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>Hi, I found you on Linkedin...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block">
+                                <div class="imgbx">
+                                    <img src="img7.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>James</h4>
+                                        <p class="time">03/14/2023</p>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>Sup nephew, how you been?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block">
+                                <div class="imgbx">
+                                    <img src="img8.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>Hamza Ahmad</h4>
+                                        <p class="time">02/8/2023</p>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>Congratulations on this new opportunity!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block">
+                                <div class="imgbx">
+                                    <img src="img9.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>John Matthew</h4>
+                                        <p class="time">11/28/2022</p>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>Hey, when are you available for a meeting?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box status">
+                    <div class="data">
+                        <div class="chatlist">
+                            <div class="block">
+                                <div class="imgbx">
+                                    <img src="user.jpg">
+                                </div>
+                                <div class="plus">+</div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>My status</h4>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>Tap to add status update</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <label>Recent Updates</label>
+                            <div class="block unseen">
+                                <div class="imgbx">
+                                    <img src="img4.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>Ali</h4>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>Just Now</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block unseen">
+                                <div class="imgbx">
+                                    <img src="img5.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>Joseph</h4>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>45 minutes ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <label>Viewed Updates</label>
+                            <div class="block seen">
+                                <div class="imgbx">
+                                    <img src="img6.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>Ana</h4>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>Yesterday, 21:16</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block seen">
+                                <div class="imgbx">
+                                    <img src="img7.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>James</h4>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>Yesterday, 5:45</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box calls">
+                    <div class="data">
+                        <div class="chatlist">
+                            <div class="block">
+                                <div class="imgbx green">
+                                    <ion-icon name="link"></ion-icon>
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>Create call link</h4>
+                                    </div>
+                                    <div class="message_p">
+                                        <p>share a link for your WhasApp call</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <label>Recent</label>
+                            <div class="block">
+                                <div class="imgbx">
+                                    <img src="img7.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>James</h4>
+                                    </div>
+                                    <div class="message_p incoming">
+                                        <p><ion-icon name="arrow-down"></ion-icon>
+                                        6/15/2023, 5:45</p>
+                                    </div>
+                                </div>
+                                <ion-icon name="call" class="call"></ion-icon>
+                            </div>
+                            <div class="block">
+                                <div class="imgbx">
+                                    <img src="img6.jpg">
+                                </div>
+                                <div class="details">
+                                    <div class="listHead">
+                                        <h4>Ana</h4>
+                                    </div>
+                                    <div class="message_p outgoing">
+                                        <p><ion-icon name="arrow-up"></ion-icon>6/10/
+                                        2023, 21:16</p>
+                                    </div>
+                                </div>
+                                <ion-icon name="call" class="call"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chatBox">
+            <div class="chat_header">
+                <div class="imgcontent">
+                    <ion-icon name="arrow-back-sharp" class="back"></ion-icon>
+                    <div class="imgBx">
+                        <img src="img1.jpg">
+                    </div>
+                    <h3>Kalid Ahmed<br><span>Online</span></h3>
+                </div>
+                <div class="actionBtns">
+                    <ion-icon name="videocam"></ion-icon>
+                    <ion-icon name="call"></ion-icon>
+                    <ion-icon name="ellipsis-vertical"></ion-icon>
+                </div>
+            </div>
+            <div class="messageBox">
+                <div class="message">This is my first full stack projects. Hope you enjoy it :)<br><span class="time">10:56</span>
+                </div>
+                
+                <form action="/submit" method="POST" enctype="multipart/form-data">
+                    <div id="text-container">
+                        <textarea id="text" name="text" rows="3" cols="50" required></textarea>
+                        <div class="feature-icons">
+                            <label for="file-input" class="file-icon"><i class="fas fa-paperclip"></i></label>
+                            <input id="file-input" class="file-input" type="file" name="file">
+                            <button type="submit" class="send-button">
+                                <ion-icon name="send"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.6.3/ionicons.min.js"></script>
+                    </div>                   
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="/script.js"></script>
+    <script>
+        // Get all the chat boxes on the page
+        const chatBoxes = document.querySelectorAll('.chatBox');
+      
+        // Loop through each chat box
+        chatBoxes.forEach(function (chatBox) {
+          const openButton = chatBox.previousElementSibling;
+          const closeButton = chatBox.querySelector('.back');
+          const chatContent = chatBox.querySelector('.chatContent');
+          const chatName = chatBox.querySelector('.chatName');
+      
+          openButton.onclick = function () {
+            // Hide all other open chat boxes
+            chatBoxes.forEach(function (box) {
+              if (box !== chatBox) {
+                box.classList.add('hide');
+              }
+            });
+      
+            chatBox.classList.remove('hide');
+          };
+      
+          closeButton.onclick = function () {
+            chatBox.classList.add('hide');
+          };
+        });
+    </script>
+    
+</body>
+</html>
