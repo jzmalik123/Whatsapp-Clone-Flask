@@ -59,7 +59,7 @@
     </style>
     <style>
         .hide {
-            display: none!important;
+            display: none;
         }
     </style>
 
@@ -86,6 +86,21 @@
                 <label for="status">Status</label>
                 <label for="calls">Calls</label>
                 <div class="underline"></div>
+            </div>
+
+            <div id="picture-close-btn" onclick="closePicture()" class="quickBtn hide" style="top: 13%;left: 5%;position: absolute;color: white;font-size: larger;width: fit-content;height: fit-content;">
+                X
+            </div>
+
+            <div class="quickBtn" style="left:10px">
+                <div id="download-btn" onclick="downloadImage()" class="btn hide"> 
+                    <ion-icon name="download"></ion-icon>
+                </div>
+            </div>
+
+            <div class="quickBtn" style="left:43%">
+                <div id="capture-btn" class="btn hide" style="background:white;" onclick="captureImage()">
+                </div>
             </div>
 
             <div class="quickBtn">
